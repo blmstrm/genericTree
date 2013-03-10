@@ -1,12 +1,15 @@
+package com.blmstrm.genericTree;
+
 import java.util.LinkedList;
 
 public class GenericNode{
 
   private LinkedList <GenericNode> childNodes;
   private GenericNode parent;
+  private NodeValue value;
 
   public GenericNode(GenericNode p){
-    this.parent = p;
+   this.parent = p;
     this.childNodes = new LinkedList <GenericNode>();
   }
 
@@ -16,17 +19,39 @@ public class GenericNode{
     }
   }
 
-  public boolean hasNoChildren(){
+  public boolean hasChildren(){
     if(this.childNodes != null){
-      return (this.childNodes.size()>0);
+      return (this.childNodes.size()!=0);
     }
-    return true; 
+    return false; 
   }
 
   public void removeChild(GenericNode child){
     if(this.childNodes!=null){
       this.childNodes.remove(child);
     }
+  }
+
+  public GenericNode getFirstChild(){
+    if(this.childNodes != null){
+      return this.childNodes.getFirst();
+    }
+    return null;
+  }
+
+  public GenericNode getParent(){
+    return this.parent;
+  }
+
+  public void setValue(NodeValue v){
+    this.value = v;
+  }
+
+  public NodeValue getValue(){
+    if(this.value !=null){
+      return this.value;
+    }
+    return null;
   }
 }
 
