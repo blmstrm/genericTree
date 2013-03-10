@@ -1,4 +1,4 @@
-public class GenericTre{
+public class GenericTree{
 
 	public GenericTree(){
 
