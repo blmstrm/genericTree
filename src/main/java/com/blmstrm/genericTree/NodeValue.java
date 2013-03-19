@@ -1,12 +1,19 @@
 package com.blmstrm.genericTree;
 
-/*TODO Leave type of NodeValue to developer*/
-public interface NodeValue{
+public class NodeValue implements INodeValue<Integer>{
 
-  public NodeValue compareTo(NodeValue otherValue);
+  private Integer value;
 
-  public int getValue();
+  public NodeValue compareTo(NodeValue otherValue){
+    return null;
+  }
 
-  public void setValue(int v);
+  public Integer getValue(){
+    return this.value;
+  }
+
+  public void setValue(Integer v){
+    this.value = v;
+    }
 
 }

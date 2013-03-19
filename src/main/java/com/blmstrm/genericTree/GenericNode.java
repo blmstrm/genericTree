@@ -6,7 +6,7 @@ public class GenericNode{
 
   private LinkedList <GenericNode> childNodes;
   private GenericNode parent;
-  private NodeValue value;
+  private INodeValue value;
 
   public GenericNode(GenericNode p){
    this.parent = p;
@@ -43,11 +43,11 @@ public class GenericNode{
     return this.parent;
   }
 
-  public void setValue(NodeValue v){
+  public void setValue(INodeValue v){
     this.value = v;
   }
 
-  public NodeValue getValue(){
+  public INodeValue getValue(){
     if(this.value !=null){
       return this.value;
     }
