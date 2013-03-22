@@ -31,9 +31,15 @@ public class GenericTree{
   public void insertValue(INodeValue value){
 
     switch(this.type){
+      //Binary Tree 
       case BINARY_TREE:
-	if(this.currentNode.childrenCount()<2){}
-	  break;
+	switch(this.currentNode.childrenCount()){
+	  case 0:break;
+	  case 1: break;
+	  case 2: break;
+	  default:;//Throw to many children exception.
+	}
+	break;
       default:
     }
   } 
