@@ -42,6 +42,10 @@ public class GenericNode{
     return null;
   }
 
+  public GenericNode getNextSibling(GenericNode currentNode){
+    return null;
+  }
+
   public GenericNode getParent(){
     return this.parent;
   }

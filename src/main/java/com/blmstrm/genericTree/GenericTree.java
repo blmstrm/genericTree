@@ -31,7 +31,7 @@ public class GenericTree{
   public void insertValue(INodeValue value){
 
     switch(this.type){
-      //Binary Tree 
+      /*Binary tree*/
       case BINARY_TREE:
 	btInsertValue(value);
 	break;
@@ -39,6 +39,7 @@ public class GenericTree{
     }
   } 
 
+  /*Insert value in binary tree*/
   private void btInsertValue(INodeValue value){
     switch(this.currentNode.childrenCount()){
       case 2:
