@@ -53,5 +53,10 @@ public class GenericNode{
     }
     return null;
   }
+
+  public int childrenCount(){
+    return this.childNodes.size();
+  }
+
 }
 

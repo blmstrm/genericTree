@@ -10,6 +10,8 @@ public class GenericTree{
 
   private GenericNode parent;
 
+  private GenericNode currentNode;
+
   public GenericTree(TreeType t){
 
     this.parent = new GenericNode(null);
@@ -18,6 +20,7 @@ public class GenericTree{
       case BINARY_TREE:
 	this.numberOfChildren = 2;
 	this.type = t;
+	this.currentNode = this.parent;
 	break;
       default:
 	//Throw Undefined three type
@@ -29,7 +32,8 @@ public class GenericTree{
 
     switch(this.type){
       case BINARY_TREE:
-	break;
+	if(this.currentNode.childrenCount()<2){}
+	  break;
       default:
     }
   } 
