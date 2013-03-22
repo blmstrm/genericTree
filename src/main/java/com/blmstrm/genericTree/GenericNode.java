@@ -13,10 +13,13 @@ public class GenericNode{
     this.childNodes = new LinkedList <GenericNode>();
   }
 
-  public void addChild(){
+  public GenericNode addChild(){
     if(this.childNodes!=null){
-      this.childNodes.add(new GenericNode(this));
+      GenericNode newNode = new GenericNode(this);
+      this.childNodes.add(newNode);
+      return newNode;
     }
+    return null;
   }
 
   public boolean hasChildren(){

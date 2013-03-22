@@ -33,14 +33,24 @@ public class GenericTree{
     switch(this.type){
       //Binary Tree 
       case BINARY_TREE:
-	switch(this.currentNode.childrenCount()){
-	  case 0:break;
-	  case 1: break;
-	  case 2: break;
-	  default:;//Throw to many children exception.
-	}
+	btInsertValue(value);
 	break;
       default:
     }
   } 
+
+  private void btInsertValue(INodeValue value){
+    switch(this.currentNode.childrenCount()){
+      case 2:
+	//Enter first child and add values 
+	break;
+      default:
+	this.currentNode = this.currentNode.addChild();
+	this.currentNode.setValue(value);
+	break;
+
+    }
+
+
+  }
 }
