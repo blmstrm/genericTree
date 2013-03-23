@@ -1,8 +1,8 @@
 package com.blmstrm.genericTree;
 
-public class GenericTree{
+import com.blmstrm.genericTree.TreeType;
 
-  private enum TreeType  { BINARY_TREE }
+public class GenericTree{
 
   private TreeType type;
 
@@ -54,5 +54,9 @@ public class GenericTree{
     }
 
 
+  }
+
+  public TreeType getType(){
+    return this.type;
   }
 }
