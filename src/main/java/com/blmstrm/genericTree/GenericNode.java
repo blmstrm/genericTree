@@ -8,18 +8,17 @@ public class GenericNode{
   private GenericNode parent;
   private INodeValue value;
 
-  public GenericNode(GenericNode p){
-   this.parent = p;
+  public GenericNode(GenericNode p, INodeValue value){
+    this.parent = p;
+    this.value = value;
     this.childNodes = new LinkedList <GenericNode>();
   }
 
-  public GenericNode addChild(){
+  public void addChild(INodeValue value){
     if(this.childNodes!=null){
-      GenericNode newNode = new GenericNode(this);
-      this.childNodes.add(newNode);
-      return newNode;
+      System.out.println("Adding node."); this.childNodes.addLast(new GenericNode(this,value));
+      System.out.println("This:"+this.childNodes.getLast());
     }
-    return null;
   }
 
   public boolean hasChildren(){
@@ -43,15 +42,18 @@ public class GenericNode{
   }
 
   public GenericNode getNextSibling(GenericNode currentNode){
+    if(this.childNodes.contains(currentNode)){
+      int pos = this.childNodes.indexOf(currentNode); 
+      int newPos = pos+1;
+      if(newPos < this.childNodes.size()){
+	return this.childNodes.get(newPos);
+      }
+    }
     return null;
   }
 
   public GenericNode getParent(){
     return this.parent;
-  }
-
-  public void setValue(INodeValue v){
-    this.value = v;
   }
 
   public INodeValue getValue(){
@@ -61,9 +63,12 @@ public class GenericNode{
     return null;
   }
 
+  public void setValue(INodeValue value){
+    this.value = value;
+  }
+
   public int childrenCount(){
     return this.childNodes.size();
   }
 
 }
-
