@@ -1,6 +1,7 @@
 genericTree
 ===========
-A generic tree implementation in Java.
+A generic tree implementation in Java aimed to provide as many different tree implementations as possible. 
+
 
 Usage
 ===========
