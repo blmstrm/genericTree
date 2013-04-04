@@ -1,30 +1,46 @@
-package com.blmstrm.genericTree;
+package com.blmstrm.genericTree.Trees;
 
 import com.blmstrm.genericTree.IGenericTree;
+import com.blmstrm.genericTree.*;
 
 public class BalancedBinaryTree implements IGenericTree{
 
-  private GenericNode parent;
-
-  private GenericNode currentNode;
+  private GenericNode root;
 
   public BalancedBinaryTree(){
-    this.parent = new GenericNode(null,null);
-    this.currentNode = this.parent;
+    this.root = new GenericNode(null,null,2);
+  }
+
+  public GenericNode getRoot(){
+    return this.root;
   }
 
   public void insertValue(INodeValue value){
 
-    switch(this.currentNode.childrenCount()){
-      case 2:
-	this.currentNode = this.currentNode.getFirstChild();
-	System.out.println("...............Full node");	
-	//Enter first child and add values 
-	break;
-      default:
-	this.currentNode.addChild(value);
-	break;
+    if(this.root.getValue()==null){
+      this.root.setValue(value);
+    }else{
+      insertValueChild(this.root,value);
     }
-
   } 
+
+  private void insertValueChild(GenericNode node, INodeValue value){
+
+    boolean lesserThan = (node.getValue().compareTo(value) < 0);
+    GenericNode child;
+
+    if(lesserThan){
+      if((child = node.getChildAt(0)) != null){
+	insertValueChild(child,value);	
+      }else{
+	node.addChildAt(0,value);
+      }
+    }else{
+      if((child = node.getChildAt(1)) != null){
+	insertValueChild(child,value);	
+      }else{
+	node.addChildAt(1,value);
+      }
+    }
+  }
 }

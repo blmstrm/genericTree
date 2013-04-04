@@ -1,23 +1,37 @@
 package com.blmstrm.genericTree;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class GenericNode{
 
-  private LinkedList <GenericNode> childNodes;
+  private ArrayList <GenericNode> childNodes;
   private GenericNode parent;
   private INodeValue value;
+  private static int nrOfChildren = 0;
 
   public GenericNode(GenericNode p, INodeValue value){
     this.parent = p;
     this.value = value;
-    this.childNodes = new LinkedList <GenericNode>();
+    this.childNodes = new ArrayList <GenericNode>();
+  }
+
+  public GenericNode(GenericNode p, INodeValue value,int numberOfChildren){
+    this(p,value);
+    this.nrOfChildren = numberOfChildren;
+    for(int i=0;i<this.nrOfChildren;i++){
+      this.childNodes.add(null);    
+    }
   }
 
   public void addChild(INodeValue value){
     if(this.childNodes!=null){
-      System.out.println("Adding node."); this.childNodes.addLast(new GenericNode(this,value));
-      System.out.println("This:"+this.childNodes.getLast());
+      this.childNodes.add(new GenericNode(this,value));
+    }
+  }
+
+  public void addChildAt(int pos, INodeValue value){
+    if(this.childNodes!=null){
+      this.childNodes.set(pos,new GenericNode(this,value));
     }
   }
 
@@ -34,20 +48,9 @@ public class GenericNode{
     }
   }
 
-  public GenericNode getFirstChild(){
-    if(this.childNodes != null){
-      return this.childNodes.getFirst();
-    }
-    return null;
-  }
-
-  public GenericNode getNextSibling(GenericNode currentNode){
-    if(this.childNodes.contains(currentNode)){
-      int pos = this.childNodes.indexOf(currentNode); 
-      int newPos = pos+1;
-      if(newPos < this.childNodes.size()){
-	return this.childNodes.get(newPos);
-      }
+  public GenericNode getChildAt(int pos){
+    if(pos < this.childNodes.size()){
+      return this.childNodes.get(pos);
     }
     return null;
   }
@@ -68,7 +71,12 @@ public class GenericNode{
   }
 
   public int childrenCount(){
-    return this.childNodes.size();
+    int returnCount = 0;
+    for(GenericNode node : this.childNodes){
+      if(node !=null){
+	returnCount++;
+      }
+    }
+    return returnCount;
   }
-
 }

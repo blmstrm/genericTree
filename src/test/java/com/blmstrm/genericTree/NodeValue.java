@@ -1,11 +1,11 @@
-package com.blmstrm.genericTree;
+import com.blmstrm.genericTree.*;
 
 public class NodeValue implements INodeValue<Integer>{
 
   private Integer value;
 
-  public NodeValue compareTo(NodeValue otherValue){
-    return null;
+  public int compareTo(INodeValue<Integer> otherValue){
+    return this.value.compareTo(otherValue.getValue());
   }
 
   public Integer getValue(){
@@ -14,6 +14,6 @@ public class NodeValue implements INodeValue<Integer>{
 
   public void setValue(Integer v){
     this.value = v;
-    }
+  }
 
 }

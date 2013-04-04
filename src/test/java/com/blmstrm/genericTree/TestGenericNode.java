@@ -28,7 +28,7 @@ public class TestGenericNode{
   public void removeChildNodeTestCase(){
     GenericNode parentNode = new GenericNode(null,null);
     parentNode.addChild(null);
-    GenericNode childToRemove = parentNode.getFirstChild();
+    GenericNode childToRemove = parentNode.getChildAt(0);
     parentNode.removeChild(childToRemove);
     assertFalse(parentNode.hasChildren());
   }
@@ -37,7 +37,7 @@ public class TestGenericNode{
   public void getParentNodeTestCase(){
     GenericNode parentNode = new GenericNode(null,null);
     parentNode.addChild(null);
-    GenericNode aChild = parentNode.getFirstChild(); 
+    GenericNode aChild = parentNode.getChildAt(0);
     assertEquals(parentNode, aChild.getParent());
   }
 
