@@ -11,7 +11,7 @@ public class TestBinaryTree{
   @Test
   public void insertChildTestCase(){
 
-    BalancedBinaryTree testTree = new BalancedBinaryTree();
+    BinaryTree testTree = new BinaryTree();
 
     NodeValue tmpValue1 = new NodeValue();
     NodeValue tmpValue2 = new NodeValue();

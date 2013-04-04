@@ -3,11 +3,11 @@ package com.blmstrm.genericTree.Trees;
 import com.blmstrm.genericTree.IGenericTree;
 import com.blmstrm.genericTree.*;
 
-public class BalancedBinaryTree implements IGenericTree{
+public class BinaryTree implements IGenericTree{
 
   private GenericNode root;
 
-  public BalancedBinaryTree(){
+  public BinaryTree(){
     this.root = new GenericNode(null,null,2);
   }
 
