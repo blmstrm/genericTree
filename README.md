@@ -6,7 +6,7 @@ A generic tree implementation in Java aimed to provide as many different tree im
 Usage
 ===========
 Create a class that implements the ``INodeValue`` interface. Implement the ``compareTo`` method to compare values the desired way.
-See the sample for a working example.
+See the benchmark folder for a working example.
 
 Available Trees
 ===========
