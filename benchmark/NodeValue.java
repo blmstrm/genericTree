@@ -1,4 +1,6 @@
-package com.blmstrm.genericTree.sample;
+package com.blmstrm.genericTree.benchmark;
+import com.blmstrm.genericTree.*;
+
 
 public class NodeValue implements INodeValue<Integer>{
 
